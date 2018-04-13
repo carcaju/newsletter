@@ -23,6 +23,7 @@ class Newsletter extends CI_Controller {
 
 	public function view($slug = NULL) {
 
+
 		$data['news_item'] = $this->newsletter_model->get_newsletter($slug);
 
 		if (empty($data['news_item'])) {
@@ -38,17 +39,19 @@ class Newsletter extends CI_Controller {
 		$this->load->view('templates/footer');
 
 
+
+
 	}
 
 	public function send($id_news=NULL) {
 
-
+		$marks = $this->input->post('mark');
 
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 
 		$data['title'] = "Enviar Newsletter";
-		$data['id_news'] = $id_news;
+		$data['marks'] = $marks;
 
 		$this->form_validation->set_rules('email', 'Email', 'required');
 

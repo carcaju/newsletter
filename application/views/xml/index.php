@@ -21,8 +21,6 @@
 
 		        <li class="ui-state-default"><?php echo $news_item['description']; ?></li>
 		        </br>
-
-				<a href="/xml/send/<?php echo $key; ?>" class="pull-right primary-font">Enviar Newsletter</a>
 		       
 		    </ul>
 
@@ -34,10 +32,10 @@
 
 <?php endforeach; ?>
 
-<a href="/xml/import" class="pull-center primary-font">Importar XML para BD</a>
 
 </div>
 
+<a href="/xml/import" class="pull-center primary-font">Importar XML para BD</a>
 
 
 

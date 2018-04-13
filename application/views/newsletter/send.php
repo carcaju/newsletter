@@ -2,12 +2,17 @@
 
 <?php echo validation_errors(); ?>
 
-<?php echo form_open('newsletter/send'); ?>
+<?php $attributes = array('name'=>'form1', 'onsubmit'=>'return ValidateEmail(document.form1.email)'); ?>
+
+<?php echo form_open('newsletter/send',$attributes); ?>
 
     <label for="text">Email</label>
     <input type="input" name="email" /><br />
-    <input type="hidden" name="id_news" value="<?php echo $id_news; ?>" /><br />
 
+
+<?php foreach ($marks as $mark): ?>
+    <input type="hidden" name="mark[]" value="<?php echo $mark; ?>" /><br />
+<?php endforeach; ?>
 
     <input type="submit" name="submit" value="Enviar" />
 

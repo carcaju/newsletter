@@ -6,6 +6,8 @@
 	<h4><?php echo $titulo; ?></h4>
 
 
+<form action="newsletter/send" method="post" accept-charset="utf-8" name="formulario" onsubmit="return Validate()">
+
 <?php foreach ($news as $news_item): ?>
 
     <div class="col-lg-6 text-center">
@@ -22,7 +24,10 @@
 		        <li class="ui-state-default"><?php echo $news_item['description']; ?></li>
 		        </br>
 
-				<a href="/newsletter/send/<?php echo $news_item['id_news']; ?>" class="pull-right primary-font">Enviar Newsletter</a>
+		        <input type="checkbox" name="mark[]" value="<?php echo $news_item['id_news']; ?>" class="pull-right primary-font">
+		        <span class="pull-right primary-font"> Enviar essa notícia</span>
+
+				
 		       
 		    </ul>
 
@@ -36,7 +41,10 @@
 
 </div>
 
+<input type="submit" name="submit" value="Enviar" />
 
+
+</form>
 
 
 
